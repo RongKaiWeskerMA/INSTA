@@ -39,8 +39,7 @@ Tiered-ImageNet is also a subset of the ImageNet. This dataset consists of 608 c
             .
             .
             ├── im_n.jpg
- 
-```
+ ```
 
 Mini-ImageNet is sampled from ImageNet. This dataset has 100 classes, with each having 600 samples. We follow the standard protocol to split the dataset into 64 training, 16 validation, and 20 testing classes. For downloading the corresponding split and data files, please refer to [this repository](https://github.com/Sha-Lab/FEAT).
 
