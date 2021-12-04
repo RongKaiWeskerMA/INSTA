@@ -17,6 +17,11 @@ We use anaconda to manage the virtual environment. Please install the following 
 
 ## Dataset
 
+### Tiered-ImageNet
+
+Tiered-ImageNet is also a subset of the ImageNet. This dataset consists of 608 classes from 34 categories and is split into 351 classes from 20 categories for training, 97 classes from 6 categories for validation, and 160 classes from 8 categories for testing. You can download the processed dataset in this [repository](https://github.com/icoz69/DeepEMD). Once the dataset is downloaded, please move it to /data direcotry. Note that the images have been resized into 84x84.
+
+### Mini-ImageNet
 ```Shell
 ├── data
     ├── Mini-ImageNet
@@ -31,17 +36,8 @@ We use anaconda to manage the virtual environment. Please install the following 
             .
             .
             ├── im_n.jpg
-   .
-   .
-   .
-
+ 
 ```
-
-### Tiered-ImageNet
-
-Tiered-ImageNet is also a subset of the ImageNet. This dataset consists of 608 classes from 34 categories and is split into 351 classes from 20 categories for training, 97 classes from 6 categories for validation, and 160 classes from 8 categories for testing. You can download the processed dataset in this [repository](https://github.com/icoz69/DeepEMD). Once the dataset is downloaded, please move it to /data direcotry. Note that the images have been resized into 84x84.
-
-### Mini-ImageNet
 
 Mini-ImageNet is sampled from ImageNet. This dataset has 100 classes, with each having 600 samples. We follow the standard protocol to split the dataset into 64 training, 16 validation, and 20 testing classes. For downloading the corresponding split and data files, please refer to [this repository](https://github.com/Sha-Lab/FEAT).
 
@@ -62,3 +58,11 @@ $ python train_fsl.py --max_epoch 200 --model_class INSTA_ProtoNet --backbone_cl
 ```shell
 $ python train_fsl.py --max_epoch 200 --model_class DDFNet --backbone_class Res12 --dataset TieredImageNet --way 5 --eval_way 5 --shot 1 --eval_shot 1 --query 15 --eval_query 15 --balance_1 1 --temperature 64 --temperature2 64 --lr 0.0002 --lr_mul 30 --lr_scheduler cosine --step_size 20 --gamma 0.5 --gpu 0 --init_weights ./saves/initialization/tieredimagenet/Res12-pre.pth --eval_interval 1 --use_euclidean
  ```
+ ## Acknowledgements
+ We acknowledge the following repositories to provide valuable insight of our code construciton:
+
+* [FEAT](https://github.com/Sha-Lab/FEAT)
+* [DeepEMD](https://github.com/icoz69/DeepEMD)
+* [Chen *etal*](https://github.com/wyharveychen/CloserLookFewShot)
+* [FCANet](https://github.com/cfzd/FcaNet)
+* [Fan *etal*](https://github.com/fanq15/FSOD-code)
