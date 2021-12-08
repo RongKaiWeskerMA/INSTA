@@ -4,7 +4,7 @@
   <img src="https://github.com/RongKaiWeskerMA/INSTA/blob/master/visual/concept.png" width="700" height="300">
 </p>
   
-This repository provides the implementation and demo of **Learning Instance and Task-Aware Dynamic Kernels for Few Shot Learning** on [Prototypical Network](https://arxiv.org/pdf/1703.05175.pdf). The dynamic enviroment of few-shot learning (FSL) requires a model capable of rapidly adapting to the novel tasks. Moreover, given the low-data regime of FSL, it requires the model to encode rich information for per-data sample. To tackle this problem, we propose to learn a dynamic kernel that is both **ins**tance and **t**ask-**a**ware: **INSTA** for each channel and spatial location of a feature map, given the task (episode) at hands. Beyond that, we further incorporate the inforamtion from the fequency domain to generate our dynamic kernel. 
+This repository provides the implementation and demo of [**Learning Instance and Task-Aware Dynamic Kernels for Few Shot Learning**](https://arxiv.org/abs/2112.03494) on [Prototypical Network](https://arxiv.org/pdf/1703.05175.pdf). The dynamic enviroment of few-shot learning (FSL) requires a model capable of rapidly adapting to the novel tasks. Moreover, given the low-data regime of FSL, it requires the model to encode rich information for per-data sample. To tackle this problem, we propose to learn a dynamic kernel that is both **ins**tance and **t**ask-**a**ware: **INSTA** for each channel and spatial location of a feature map, given the task (episode) at hands. Beyond that, we further incorporate the inforamtion from the fequency domain to generate our dynamic kernel. 
 <p align="center">
   <img src="https://github.com/RongKaiWeskerMA/INSTA/blob/master/visual/heatmap.png">
 </p>
