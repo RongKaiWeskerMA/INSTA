@@ -10,6 +10,7 @@
           <excludedPaths>
             <excludedPath path="/storage/wesker/code/data/tieredimagenet" />
             <excludedPath path="/storage/wesker/code/saves" />
+            <excludedPath path="/storage/wesker/code/data" />
           </excludedPaths>
         </serverdata>
       </paths>

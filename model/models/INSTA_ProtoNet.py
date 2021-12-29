@@ -19,7 +19,7 @@ class INSTA_ProtoNet(FewShotModel_1):
         SFC = proto.clone().detach()
         SFC = nn.Parameter(SFC.detach(), requires_grad=True)
         # the learning rate which yields the best resulat is 0.6 yet.
-        optimizer = torch.optim.SGD([SFC], lr=0.006, momentum=0.9, dampening=0.9, weight_decay=0)
+        optimizer = torch.optim.SGD([SFC], lr=0.06, momentum=0.9, dampening=0.9, weight_decay=0)
         # crate label for finetune
         label_shot = torch.arange(self.args.way).repeat(self.args.shot)
         label_shot = label_shot.type(torch.cuda.LongTensor)
