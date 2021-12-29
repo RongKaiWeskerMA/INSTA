@@ -14,7 +14,7 @@ from PIL import Image
 THIS_PATH = osp.dirname(__file__)
 ROOT_PATH1 = osp.abspath(osp.join(THIS_PATH, '..', '..', '..'))
 ROOT_PATH2 = osp.abspath(osp.join(THIS_PATH, '..', '..'))
-IMAGE_PATH = osp.join(ROOT_PATH1, 'data/tieredimagenet/')
+IMAGE_PATH = osp.join(ROOT_PATH2, 'data/tieredimagenet/')
 SPLIT_PATH = osp.join(ROOT_PATH2, 'data/miniimagenet/split')
 
 from .transforms import *

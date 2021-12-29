@@ -205,7 +205,7 @@ def get_command_line_parser():
     parser.add_argument('--gpu', default='0')
     parser.add_argument('--init_weights', type=str, default=None)
     parser.add_argument('--emb_adap', action='store_true', default=False)
-
+    parser.add_argument('--testing', action='store_true', default=False)
 
     # usually untouched parameters
     parser.add_argument('--mom', type=float, default=0.9)

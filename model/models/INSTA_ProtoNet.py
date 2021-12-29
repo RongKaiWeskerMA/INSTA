@@ -8,14 +8,11 @@ from model.models.INSTA import INSTA
 # Note: As in Protonet, we use Euclidean Distances here, you can change to the Cosine Similarity by replace
 #       TRUE in line 30 as self.args.use_euclidean
 
-
-
 class INSTA_ProtoNet(FewShotModel_1):
     def __init__(self, args):
         super().__init__(args)
         self.args = args
         self.INSTA = INSTA(640, 5, 0.2, 3, args=args)
-
 
     def inner_loop(self, proto, support):
         # init the proto
@@ -41,15 +38,9 @@ class INSTA_ProtoNet(FewShotModel_1):
                     optimizer.step()
         return SFC
 
-
-
     def classifier(self, query, proto):
         logits = - torch.sum((proto.unsqueeze(0) - query.unsqueeze(1)) ** 2, 2)/self.args.temperature
         return logits.squeeze()
-
-
-
-
 
     def _forward(self, instance_embs, support_idx, query_idx):
         emb_dim = instance_embs.size()[-3:]
@@ -58,17 +49,12 @@ class INSTA_ProtoNet(FewShotModel_1):
         # organize support/query data
         support = instance_embs[support_idx.flatten()].view(*(support_idx.shape + emb_dim))
         query   = instance_embs[query_idx.flatten()].view(  *(query_idx.shape   + emb_dim))
-
-
         num_samples = support.shape[1]
         num_proto = support.shape[2]
         support = support.squeeze()
 
-
         # adapted_support and task-specific kernels
         adapted_s, task_kernel = self.INSTA(support.view(-1, *emb_dim))
-
-
         query = query.view(-1, *emb_dim)
         adapted_proto = adapted_s.view(num_samples, -1, *adapted_s.shape[1:]).mean(0)
         adapted_proto = nn.AdaptiveAvgPool2d(1)(adapted_proto).squeeze(-1).squeeze(-1)
@@ -76,21 +62,15 @@ class INSTA_ProtoNet(FewShotModel_1):
         ## The query feature map adaptation
         query_ = nn.AdaptiveAvgPool2d(1)((self.INSTA.unfold(query, int((task_kernel.shape[-1]+1)/2-1), task_kernel.shape[-1]) * task_kernel)).squeeze()
         query = query + query_
-
-
         adapted_q = nn.AdaptiveAvgPool2d(1)(query).squeeze(-1).squeeze(-1)  ##put squeeze if we dont use the feature map in the end
-        adapted_proto = self.inner_loop(adapted_proto, nn.AdaptiveAvgPool2d(1)(support).squeeze().view(num_proto*num_samples,channel_dim))
+        if self.args.testing:
+            adapted_proto = self.inner_loop(adapted_proto, nn.AdaptiveAvgPool2d(1)(support).squeeze().view(num_proto*num_samples,channel_dim))
         logits = self.classifier(adapted_q, adapted_proto)
 
-
-
         if self.training:
-
             reg_logits = None
-
             return logits, reg_logits
         else:
-
             return logits
 
 

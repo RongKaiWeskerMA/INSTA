@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="code_q2" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="code_q2">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/storage/wesker/code" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/storage/wesker/code/data/tieredimagenet" />
+            <excludedPath path="/storage/wesker/code/saves" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

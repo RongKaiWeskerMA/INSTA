@@ -155,6 +155,7 @@ class FSLTrainer(Trainer):
     def evaluate_test(self):
         # restore model args
         args = self.args
+        self.args.testing = True
         self.model.load_state_dict(torch.load(osp.join(self.args.save_path, 'max_acc.pth'))['params'])
         self.model.eval()
         record = np.zeros((600, 2)) # loss and acc
