@@ -72,6 +72,3 @@ class INSTA_ProtoNet(FewShotModel_1):
             return logits, reg_logits
         else:
             return logits
-
-
-
