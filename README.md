@@ -3,7 +3,16 @@
 <p align="center">
   <img src="visual/concept.png" width="700" height="300">
 </p>
-  
+
+If this repository is helpful to you, please cite the following bib:
+```Shell
+    @article{ma2021learning,
+    title={Learning Instance and Task-Aware Dynamic Kernels for Few Shot Learning},
+    author={Ma, Rongkai and Fang, Pengfei and Avraham, Gil and Zuo, Yan and Drummond, Tom and Harandi, Mehrtash},
+    journal={arXiv preprint arXiv:2112.03494},
+    year={2021}
+    }
+ ```   
 This repository provides the implementation and demo of [**Learning Instance and Task-Aware Dynamic Kernels for Few Shot Learning**](https://arxiv.org/abs/2112.03494) on [Prototypical Network](https://arxiv.org/pdf/1703.05175.pdf). The dynamic enviroment of few-shot learning (FSL) requires a model capable of rapidly adapting to the novel tasks. Moreover, given the low-data regime of FSL, it requires the model to encode rich information for per-data sample. To tackle this problem, we propose to learn a dynamic kernel that is both **ins**tance and **t**ask-**a**ware: **INSTA** for each channel and spatial location of a feature map, given the task (episode) at hands. Beyond that, we further incorporate the inforamtion from the fequency domain to generate our dynamic kernel. 
 <p align="center">
   <img src="visual/heatmap.png">
