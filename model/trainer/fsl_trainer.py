@@ -2,7 +2,6 @@ import time
 import os.path as osp
 import numpy as np
 import matplotlib.pyplot as plt
-
 import torch
 import torch.nn.functional as F
 
@@ -17,6 +16,7 @@ from model.utils import (
 )
 
 from tqdm import tqdm
+
 
 class FSLTrainer(Trainer):
     def __init__(self, args):
@@ -47,7 +47,7 @@ class FSLTrainer(Trainer):
         self.model.train()
         if self.args.fix_BN:
             self.model.encoder.eval()
-        
+
         # start FSL training
         label, label_aux = self.prepare_label()
         for epoch in range(1, args.max_epoch + 1):
@@ -74,6 +74,7 @@ class FSLTrainer(Trainer):
 
                 # get saved centers
                 logits, reg_logits = self.para_model(data)
+
                 if reg_logits is not None:
                     loss = F.cross_entropy(logits, label)
                     total_loss = args.balance_1*loss + args.balance_2 * F.cross_entropy(reg_logits, label_aux)
