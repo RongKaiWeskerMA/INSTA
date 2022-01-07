@@ -11,10 +11,6 @@ class FewShotModel_1(nn.Module):
         super().__init__()
         self.args = args
         # from model.models.ddf import DDF
-
-
-
-
         if args.backbone_class == 'Res12':
             hdim = 640
             from model.networks.res12 import ResNet

@@ -1,7 +1,6 @@
 import time
 import os.path as osp
 import numpy as np
-import matplotlib.pyplot as plt
 import torch
 import torch.nn.functional as F
 
