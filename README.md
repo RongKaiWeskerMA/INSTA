@@ -58,7 +58,7 @@ The CUB is a fine-grained dataset, which consists of 11,788 images from 200 diff
 
 ### FC100
 
-FC100 dataset is a variant of the standard CIFAR100 dataset, which contains images from 100 classes, with each class containing 600 samples. We follow the standard setting, where the dataset is split into 60/20/20 classes for training, validation and testing, respectively. For downloading and split the data, please refer to [eepEMD repository](https://github.com/icoz69/DeepEMD).
+FC100 dataset is a variant of the standard CIFAR100 dataset, which contains images from 100 classes, with each class containing 600 samples. We follow the standard setting, where the dataset is split into 60/20/20 classes for training, validation and testing, respectively. For downloading and split the data, please refer to [DeepEMD repository](https://github.com/icoz69/DeepEMD).
 
 ## Training
 
