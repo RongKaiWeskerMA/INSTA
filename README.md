@@ -1,4 +1,4 @@
-# INSTA: Learning Instance and Task-Aware Dynamic Kernels for Few Shot Learning
+# INSTA: Learning Instance and Task-Aware Dynamic Kernels for Few Shot Learning 
 
 <p align="center">
   <img src="visual/concept.png" width="700" height="300">
