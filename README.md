@@ -84,3 +84,4 @@ $ python train_fsl.py --max_epoch 200 --model_class INSTA_ProtoNet --backbone_cl
 * [DDF](https://github.com/theFoxofSky/ddfnet)
 * [FCANet](https://github.com/cfzd/FcaNet)
 * [Fan *etal*](https://github.com/fanq15/FSOD-code)
+* [simple-cnaps](https://github.com/peymanbateni/simple-cnaps)
