@@ -81,6 +81,7 @@ $ python train_fsl.py --max_epoch 200 --model_class INSTA_ProtoNet --backbone_cl
 * [FEAT](https://github.com/Sha-Lab/FEAT)
 * [DeepEMD](https://github.com/icoz69/DeepEMD)
 * [Chen *etal*](https://github.com/wyharveychen/CloserLookFewShot)
+* [DeepBDC](https://github.com/Fei-Long121/DeepBDC)
 * [DDF](https://github.com/theFoxofSky/ddfnet)
 * [FCANet](https://github.com/cfzd/FcaNet)
 * [Fan *etal*](https://github.com/fanq15/FSOD-code)
