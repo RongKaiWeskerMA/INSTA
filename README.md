@@ -75,9 +75,9 @@ $ python train_fsl.py --max_epoch 200 --model_class INSTA_ProtoNet --backbone_cl
  ```shell
 $ python train_fsl.py --max_epoch 200 --model_class INSTA_ProtoNet --backbone_class Res12 --dataset MiniImageNet --way 5 --eval_way 5 --shot 5 --eval_shot 5 --query 15 --eval_query 15 --balance_1 1 --temperature 24 --temperature2 32 --lr 0.0002 --lr_mul 25 --lr_scheduler cosine  --gamma 0.5 --gpu 0 --init_weights ./saves/initialization/miniimagenet/Res12-pre.pth --eval_interval 1 --use_euclidean
  ```
- ##To Do
- * 
- * 
+## To Do
+* 
+* 
  
  ## Acknowledgements
  We acknowledge the following repositories to provide valuable insight of our code construciton:
