@@ -121,4 +121,3 @@ class CUB(Dataset):
         else:
             image = self.transform(Image.open(data).convert('RGB'))
         return image, label            
-

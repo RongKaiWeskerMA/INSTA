@@ -21,8 +21,6 @@ class FewShotModel_1(nn.Module):
             self.encoder = ResNet()
         else:
             raise ValueError('')
-        # self.clf = nn.Linear(hdim, args.num_class)
-
 
     def split_instances(self, data):
         args = self.args
@@ -32,8 +30,6 @@ class FewShotModel_1(nn.Module):
         else:
             return  (torch.Tensor(np.arange(args.eval_way*args.eval_shot)).long().view(1, args.eval_shot, args.eval_way),
                      torch.Tensor(np.arange(args.eval_way*args.eval_shot, args.eval_way * (args.eval_shot + args.eval_query))).long().view(1, args.eval_query, args.eval_way))
-
-
 
 
     def forward(self, x, get_feature=False):

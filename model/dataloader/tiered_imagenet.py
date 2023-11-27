@@ -21,10 +21,6 @@ from .transforms import *
 import PIL
 
 
-
-
-
-
 def buildLabelIndex(labels):
     label2inds = {}
     for idx, label in enumerate(labels):

@@ -48,13 +48,3 @@ for dataset in dataset_list:
             if (i%4 == 3):
                 file_list = file_list + classfile_list
                 label_list = label_list + np.repeat(i, len(classfile_list)).tolist()
-
-    # if 'train' in dataset:
-    #     with open(args.split + '/train.csv', 'w') as f1:
-    #         f1.writelines(['{},{}\n'.format(name[0], name[1]) for name in zip(file_list,label_list)])
-    # if 'val' in dataset:
-    #     with open(args.split + '/val.csv', 'w') as f2:
-    #         f2.writelines(['{},{}\n'.format(name[0], name[1]) for name in zip(file_list,label_list)])
-    # if 'test' in dataset:
-    #     with open(args.split + '/test.csv', 'w') as f3:
-    #         f3.writelines(['{},{}\n'.format(name[0], name[1]) for name in zip(file_list,label_list)])

@@ -34,7 +34,6 @@ class INSTA(nn.Module):
             nn.Conv2d(c*2, c, 1),
             nn.BatchNorm2d(c),
             nn.Sigmoid()          #comment out if needed/ sigmoid yields the best result so far
-
         )
 
     def CLM(self, featuremap):   #NxK,C,H,W
@@ -72,7 +71,6 @@ class INSTA(nn.Module):
 
     def forward(self, x):
         spatial_kernel = self.spatial_kernel_network(x, self.conv).unsqueeze(-3)
-
         channel_kernenl = self.channel_kernel_network(x).unsqueeze(-2)
         kernel = spatial_kernel*channel_kernenl
         ## Instance Kernel
