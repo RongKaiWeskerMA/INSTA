@@ -9,6 +9,7 @@ from torchvision import transforms
 from tqdm import tqdm
 import numpy as np
 
+# Paths
 THIS_PATH = osp.dirname(__file__)
 ROOT_PATH = osp.abspath(osp.join(THIS_PATH, '..', '..'))
 ROOT_PATH2 = osp.abspath(osp.join(THIS_PATH, '..', '..', '..'))
@@ -18,17 +19,20 @@ CACHE_PATH = osp.join(ROOT_PATH, '.cache/')
 
 
 def identity(x):
+    """Identity function."""
     return x
 
 class MiniImageNet(Dataset):
-    """ Usage:
-    """
+    """Dataset class for MiniImageNet."""
     def __init__(self, setname, args, augment=False):
+        """Initialize MiniImageNet dataset."""
         im_size = args.orig_imsize
         csv_path = osp.join(SPLIT_PATH, setname + '.csv')
         cache_path = osp.join( CACHE_PATH, "{}.{}.{}.pt".format(self.__class__.__name__, setname, im_size) )
         self.args = args
         self.use_im_cache = ( im_size != -1 ) # not using cache
+        
+        # Check if using image cache
         if self.use_im_cache:
             if not osp.exists(cache_path):
                 print('* Cache miss... Preprocessing {}...'.format(setname))
@@ -50,6 +54,7 @@ class MiniImageNet(Dataset):
 
         image_size = 84
         if augment and setname == 'train':
+            # Augmentation transforms
             transforms_list = [
                 transforms.RandomResizedCrop(image_size),
                 transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4),
@@ -57,35 +62,32 @@ class MiniImageNet(Dataset):
                 transforms.ToTensor(),
             ]
         else:
+            # Validation/Test transforms
             transforms_list = [
                 transforms.Resize(92),
                 transforms.CenterCrop(image_size),
                 transforms.ToTensor(),
             ]
 
-        # Transformation
-
+        # Transformation based on backbone class
         if args.backbone_class == 'Res12' :
             self.transform = transforms.Compose(
-
                 transforms_list + [
                 transforms.Normalize(np.array([x / 255.0 for x in [120.39586422,  115.59361427, 104.54012653]]),
                                      np.array([x / 255.0 for x in [70.68188272,   68.27635443,  72.54505529]]))
             ])
-
         elif args.backbone_class == 'Res18':
             self.transform = transforms.Compose(
                 transforms_list + [
                 transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
             ])
-
         else:
             raise ValueError('Non-supported Network Types. Please Revise Data Pre-Processing Scripts.')
 
     def parse_csv(self, csv_path, setname):
+        """Parse CSV file to get image paths and labels."""
         lines = [x.strip() for x in open(csv_path, 'r').readlines()][1:]
-
 
         data = []
         label = []
@@ -105,9 +107,11 @@ class MiniImageNet(Dataset):
         return data, label
 
     def __len__(self):
+        """Get the length of the dataset."""
         return len(self.data)
 
     def __getitem__(self, i):
+        """Get an item from the dataset."""
         data, label = self.data[i], self.label[i]
         if self.use_im_cache:
             image = self.transform(data)
